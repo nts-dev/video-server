@@ -1,0 +1,228 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+}
+
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('font/museosans/500/MuseoSans_500-webfont.eot');
+    src: url('font/museosans/500/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+        url('font/museosans/500/MuseoSans_500-webfont.woff2') format('woff2'),
+        url('font/museosans/500/MuseoSans_500-webfont.woff') format('woff'),
+        url('font/museosans/500/MuseoSans_500-webfont.ttf') format('truetype'),
+        url('font/museosans/500/MuseoSans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.dhxtoolbar_float_right {
+    padding-right: 8px !important;
+}
+div.gridbox_dhx_terrace.gridbox {
+    border: none !important;
+}
+.dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_cont_tabbar {
+    border-left: 0px solid #ccc !important; 
+}
+
+.dhxtabbar_base_dhx_terrace 
+div.dhxtabbar_tabs 
+div.dhxtabbar_tab.dhxtabbar_tab_actv 
+div.dhxtabbar_tab_text {
+    font-family: 'museo_sans500' !important;
+    font-size:10px !important; 
+}
+.dhx_toolbar_dhx_terrace
+div.dhx_toolbar_btn
+div.dhxtoolbar_text,
+.dhx_toolbar_dhx_terrace
+div.dhx_toolbar_arw div.arwimg {
+    font-family: 'museo_sans500' !important;
+    font-size:10px !important;
+}
+.dhxtree_dhx_terrace .standartTreeRow,
+.dhxtree_dhx_terrace .standartTreeRow,
+.dhxtree_dhx_terrace .selectedTreeRow_lor, 
+.dhxtree_dhx_terrace .selectedTreeRow {
+    font-family: 'museo_sans500' !important;
+    font-size:10px !important;
+}
+div.gridbox_dhx_terrace.gridbox table.obj, .dhx_combo_select, 
+.gridbox_dhx_skyblue.gridbox .dhx_combo_edit,
+.gridbox_dhx_skyblue.gridbox .dhx_textarea,
+dhx_dragColDiv, div.gridbox div.ftr td,
+div.pagingBlock, span.recordsInfoBlock {
+    font-family: 'museo_sans500' !important;
+    font-size:10px !important;
+}
+.dhtmlx_message_area {
+    height: 200px;
+    width: 200px;
+}
+#footer-v1{
+    position:absolute;
+    bottom: 0px;
+    left: 0xp;
+    width: 100%;
+}
+.dhx_toolbar_dhx_terrace.dhxtoolbar_icons_24 div.dhx_toolbar_btn, .dhx_toolbar_dhx_terrace.dhxtoolbar_icons_24 div.dhx_toolbar_arw {
+    height: 38px !important;
+}
+div.gridbox_dhx_terrace.gridbox table.hdr td div.hdrcell {
+    text-transform: none !important;
+    font-family: 'museo_sans500';
+    font-size:10px !important;
+}
+
+div.gridbox_dhx_terrace.gridbox table.hdr td div.hdrcell input{
+    line-height: 15px !important;
+    margin-bottom: 8px !important;
+}
+.dhx_toolbar_dhx_terrace div.dhx_toolbar_btn, .dhx_toolbar_dhx_terrace div.dhx_toolbar_arw {
+    -moz-user-select: none;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    cursor: default;
+    float: left;
+    font-size:11px;
+    height: 30px !important;
+}
+#totalinclbtw{
+    padding-right:10px;
+}
+.dhxtree_dhx_skyblue .standartTreeRow, .dhxtree_dhx_skyblue .standartTreeRow_lor {
+    font-family: 'museo_sans500' !important;
+    font-size:10px !important; 
+    height: 10px !important; 
+    line-height: 10px !important; 
+}
+.dhxtree_dhx_skyblue .selectedTreeRow_lor, .dhxtree_dhx_skyblue .selectedTreeRow {
+    font-family: 'museo_sans500' !important;
+    font-size:11px !important; 
+    height: 10px !important; 
+    line-height: 10px !important; 
+}
+.dhtmlx_message_area{
+    z-index: 999999999 !important;
+}
+div.gridbox_dhx_web.gridbox table.obj.row20px tr td {
+    height: 24px;
+    line-height: 24px !important;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+div.gridbox_dhx_terrace.gridbox table.obj.row20px tr td {
+    height: 24px;
+    line-height: 24px !important;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.dhxwin_active div.dhxwin_hdr div.dhxwin_icon {
+    display: none;
+}
+
+.dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_toolbar_def {
+    border-left: 1px solid #ccc !important;
+    border-right: 1px solid #ccc !important;
+    /*border-left: 0px solid #ccc !important;*/
+}
+
+.dhxlayout_sep{
+    border-left: 0px solid #ccc !important; 
+}
+.dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_cont_tabbar {
+    border:none;
+}
+.dhxtoolbar_text i{
+    color:#3da0e3;
+    font-size:1.5em;
+}
+.submit_iframe div{
+    color:#337ab7;
+    font-family: 'museo_sans500';
+}
+.dhxform_obj_dhx_terrace div.dhxform_label {
+    font-family: 'museo_sans500'!important;
+    font-size:11px !important;
+}
+
+#totalexcelbtwlabel{
+    padding-right:10px !important;
+}
+#totalexclbtw,#btw,#totalinclbtw{
+    text-align:right !important;
+    padding-left: 5px !important;
+    padding-right: 8px !important;
+}
+#totalinclbtw{
+    padding-right: 14px !important;
+
+}
+.totalinclbtwlabel{
+    text-align:right !important;  
+}
+div.gridbox div.ftr td {
+    background-color: #fff;
+    border-color: #ccc;
+    border-width: 1px 0 0;
+    color: #333;
+    font-style: normal;
+    line-height: 41px;
+    padding-left: 20px;
+    width: auto;
+}
+
+div.gridbox_dhx_web.gridbox table.obj tr td {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+.dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tab div.dhxtabbar_tab_text {
+    border-color: #ccc #ccc #fff;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    height: 30px !important;
+    line-height: 20px !important;
+    overflow: hidden;
+    padding: 0 10px  !important;
+    position: relative;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+
+
+.dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_left,
+.dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_right {
+    -moz-user-select: none;
+    height: 30px !important;
+    margin: 0 1px;
+    position: absolute;
+    top: -1px;
+    transform: translate3d(0px, 0px, 0px);
+    width: 5000px;
+}
+
+.dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_toolbar_def {
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 1px !important;
+    position: relative;
+}
+
+.formSearch .dhxform_btn {
+    background-color: #fff !important;
+    border: 1px solid #fff  !important;
+    border-radius: 3px;
+    height: 21px !important;
+}

@@ -1,0 +1,525 @@
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('fonts/museosans/500/MuseoSans_500-webfont.eot');
+    src: url('fonts/museosans/500/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/museosans/500/MuseoSans_500-webfont.woff2') format('woff2'),
+        url('fonts/museosans/500/MuseoSans_500-webfont.woff') format('woff'),
+        url('fonts/museosans/500/MuseoSans_500-webfont.ttf') format('truetype'),
+        url('fonts/museosans/500/MuseoSans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.video-nav-link{
+    font-size: 15px !important;
+}
+
+div.gridbox_dhx_web.gridbox table.obj tr td {
+    font-family: 'museo_sans500' !important;
+    font-size:10.6px !important;  
+    padding-bottom: 2px  !important;  
+    padding-top: 2px  !important;  
+}
+.search-btn {
+    padding-top: 3px;
+    font-size:18px !important; 
+    /*color : #3276b1 !important;*/ 
+    color : #3DA0E3 !important; 
+}
+
+.customebtn {
+    background-color: #F4F4F4 !important;
+    border: 1px solid #F4F4F4 !important;
+}
+.dhx_toolbar_dhx_terrace div.dhx_toolbar_text {
+    -moz-user-select: none;
+    float: left;
+    line-height: 17px !important;
+    margin-top: 0px !important;
+    padding: 0px !important;
+    vertical-align: middle;
+}
+
+.dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_cont_tabbar {
+    border: 0px solid #ccc !important;
+}
+.dhxsidebar_tpl_myview div.dhxsidebar_item {
+    height: 43px  !important;
+    line-height: 43px !important;
+}
+.dhxwins_vp_dhx_terrace div.dhxwin_hdr div.dhxwin_icon {
+    display: none;
+}
+.dhxwins_vp_dhx_terrace div.dhxwin_hdr div.dhxwin_icon.without_icon {
+    display: none;
+}
+.logout_web{
+    color:#fff !important;
+}
+.bcf-toolbar-icons{
+    color:#3da0e3;
+    font-size:1.3em;
+    margin-right: 10px;
+}
+.bcf-toolbar-icons-white{
+    color:#fff;
+    font-size:1.3em;
+    margin-right: 10px;
+}
+.dhxtoolbar_text ,dhx_toolbar_btn dhxtoolbar_btn_def i{
+    font-size:11px !important;
+}
+html body{
+    font-family: 'museo_sans500' !important;
+    font-size:11px !important;  
+}
+
+div.gridbox_dhx_terrace.gridbox table.hdr td div.hdrcell {
+    font-family: 'museo_sans500' !important;
+    line-height: 36px;
+    padding-left: 20px;
+    text-transform: none !important;
+    width: auto;
+}
+div.gridbox table.obj{
+    font-family: 'museo_sans500' !important;
+    /*font-size: 11px  !important;*/
+}
+
+
+@media (min-width: 768px) {
+    .dhxlayout_base_dhx_terrace div.dhx_cell_layout div.dhx_cell_hdr {
+        font-family: 'museo_sans500' !important;
+        font-size:10px !important;
+    }
+    .dhxsidebar_base_dhx_terrace div.dhxsidebar_cont div.dhxsidebar_side div.dhxsidebar_side_items div.dhxsidebar_item {
+        font-family: 'museo_sans500' !important;
+        font-size:10px !important;
+    }
+    .dhxform_obj_dhx_web .dhxform_textarea {
+        font-size: 10px !important; 
+    }
+
+    .dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tab div.dhxtabbar_tab_text {
+        font-size: 10px !important; 
+    }
+    div.gridbox_dhx_web.gridbox table.hdr td{
+        font-size: 10px !important; 
+    }
+    div.gridbox_dhx_web.gridbox table.hdr td{
+        font-family: 'museo_sans500' !important;
+        padding: 1px 0px 1px !important;
+        font-size: 10px !important;
+    }
+
+    div.gridbox_dhx_web.gridbox table.obj tr td{
+        font-family: 'museo_sans500' !important;
+        font-size: 10px  !important; 
+    }
+
+    .dhxform_obj_dhx_web {
+        color: #000;
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important;
+        line-height: normal;
+    }
+    .dhxform_obj_dhx_web fieldset.dhxform_fs legend.fs_legend {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    .dhxform_obj_dhx_web div.dhxform_label {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    .dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+        color: #fff;
+        cursor: pointer;
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    .dhx_toolbar_dhx_terrace div.dhx_toolbar_btn div.dhxtoolbar_text, .dhx_toolbar_dhx_terrace div.dhx_toolbar_arw div.arwimg {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+
+    .dhx_toolbar_dhx_web div.dhx_toolbar_btn div.dhxtoolbar_text, .dhx_toolbar_dhx_web div.dhx_toolbar_arw div.arwimg {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    .dhxform_obj_dhx_web .dhxform_textarea {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    div.gridbox_dhx_web.gridbox table.obj.row20px tr td {
+        border-bottom: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+        height: 24px !important;
+        line-height: 20px !important;
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
+    div.gridbox div.ftr td {
+        background-color: #f9f9f9 !important;
+        border-right: 1px solid #ededed !important;
+        border-top: 1px solid #ededed !important;
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important;
+        font-style: normal !important;
+        overflow: hidden;
+        padding: 0 !important;
+        text-align: right;
+        font-weight: bold;
+    }
+    /*tabbar*/
+    .dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs {
+        height: 24px !important;
+    }
+    .dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tabs_base {
+        height: 24px !important;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+    }
+    div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_left, .dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_right {
+        -moz-user-select: none;
+        height: 24px !important;
+        margin: 0 1px;
+        position: absolute;
+        top: -1px;
+        transform: translate3d(0px, 0px, 0px);
+        width: 5000px;
+    }
+
+    .fa-trash::before {
+        color: rgba(227, 86, 86, 0.51) !important;
+    }
+
+    .dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tab div.dhxtabbar_tab_text {
+        border-color: #ccc #ccc #fff;
+        border-style: solid;
+        border-width: 1px 1px 0;
+        height: 24px !important;
+        line-height: 25px !important;
+        overflow: hidden;
+        padding: 0 15px;
+        position: relative;
+        text-align: center;
+        top: 0;
+        vertical-align: middle;
+    }
+
+
+}
+.dhx_toolbar_dhx_terrace {
+    background-color: #fff;
+    color: #333;
+    cursor: default;
+    font-family: Arial,Helvetica;
+    font-size: 10px !important;
+    height: 24px !important;
+    line-height: normal;
+    overflow: hidden;
+    padding: 5px 5px;
+    position: relative;
+}
+.dhx_toolbar_dhx_terrace div.dhx_toolbar_btn, .dhx_toolbar_dhx_terrace div.dhx_toolbar_arw {
+    height: 24px !important;
+    margin-top: 0px !important;
+    padding: 1px 1px !important;
+}
+
+div.gridbox_dhx_terrace.gridbox table.obj tr td {
+    border-color: #fff !important;
+}
+
+.dhxacc_base_dhx_terrace div.dhx_cell_acc div.dhx_cell_statusbar_def div.dhx_cell_statusbar_paging, .dhxlayout_base_dhx_terrace div.dhx_cell_layout div.dhx_cell_statusbar_def div.dhx_cell_statusbar_paging, .dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_statusbar_def div.dhx_cell_statusbar_paging {
+    background: white none repeat scroll 0 0;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    height: 26px !important;
+    line-height: 11px !important;
+    overflow: hidden;
+    padding: 1px 2px 0 0 !important;
+    position: relative;
+    white-space: nowrap;
+    z-index: 1;
+}
+@media (min-width: 992px) {
+
+}
+@media (min-width: 1200px) {
+    .dhxlayout_base_dhx_terrace div.dhx_cell_layout div.dhx_cell_hdr {
+        font-family: 'museo_sans500' !important;
+        font-size:10.6px !important;
+    }
+    .dhxsidebar_base_dhx_terrace div.dhxsidebar_cont div.dhxsidebar_side div.dhxsidebar_side_items div.dhxsidebar_item {
+        font-family: 'museo_sans500' !important;
+        font-size:10.6px !important;
+    }
+    div.gridbox_dhx_web.gridbox table.obj.row20px tr td {
+        border-bottom: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+        height: 24px !important;
+        line-height: 20px !important;
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
+    div.gridbox div.ftr td {
+        background-color: #f9f9f9 !important;
+        border-right: 1px solid #ededed !important;
+        border-top: 1px solid #ededed !important;
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important;
+        font-style: normal !important;
+        overflow: hidden;
+        padding: 5px 5px 5px 10px !important;
+        text-align: right;
+        font-weight: bold;
+    }
+    .dhxtabbar_base_dhx_terrace div.dhxtabbar_tabs div.dhxtabbar_tab div.dhxtabbar_tab_text {
+        font-family: 'museo_sans500' !important;
+        font-size:10.6px !important; 
+    }
+    .dhxsidebar_base_dhx_terrace div.dhxsidebar_cont div.dhx_cell_sidebar div.dhx_cell_toolbar_def {
+        border-right: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        overflow: hidden;
+        padding: 2px !important;
+        position: relative;
+    }
+
+    div.gridbox_dhx_web.gridbox table.hdr td div.hdrcell {
+        font-family: 'museo_sans500' !important;
+        line-height: 25px;
+        padding-left: 10px;
+        text-transform: none !important;
+        width: auto;
+    }
+    div.gridbox_dhx_terrace.gridbox table.hdr td div.hdrcell {
+        font-family: 'museo_sans500' !important;
+        line-height: 36px;
+        padding-left: 20px;
+        text-transform: capitalize !important;
+        width: auto;
+    }
+    .dhxform_block .in_block{
+        padding: 0px !important;
+    }
+    
+    div.hdrcell .combo{
+        /*padding-top: 5px !important;*/
+    }
+
+
+    /*div.gridbox_dhx_web.gridbox .xhdr{
+        height:30px !important;
+    }*/
+    div.gridbox_dhx_web.gridbox table.hdr td{
+        font-family: 'museo_sans500' !important;
+        padding: 1px 0px 1px !important;
+        font-size: 10px !important;
+    }
+
+    div.gridbox_dhx_web.gridbox table.obj tr td{
+        font-family: 'museo_sans500' !important;
+        font-size: 11px  !important; 
+    }
+
+    .dhxform_obj_dhx_web {
+        color: #000;
+        font-family: 'museo_sans500' !important;
+        font-size: 12px !important;
+        line-height: normal;
+    }
+    .dhxform_obj_dhx_web fieldset.dhxform_fs legend.fs_legend {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    .dhxform_obj_dhx_web div.dhxform_label {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    .dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+        color: #fff;
+        cursor: pointer;
+        font-family: 'museo_sans500' !important;
+        font-size: 11px !important; 
+    }
+    .dhx_toolbar_dhx_terrace div.dhx_toolbar_btn div.dhxtoolbar_text, .dhx_toolbar_dhx_terrace div.dhx_toolbar_arw div.arwimg {
+        font-family: 'museo_sans500' !important;
+        font-size: 11px !important; 
+    }
+
+    .dhx_toolbar_dhx_web div.dhx_toolbar_btn div.dhxtoolbar_text, .dhx_toolbar_dhx_web div.dhx_toolbar_arw div.arwimg {
+        font-family: 'museo_sans500' !important;
+        font-size: 11px !important; 
+    }
+    .dhxform_obj_dhx_web .dhxform_textarea {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+    div.dhxcombo_dhx_skyblue input.dhxcombo_input {
+        font-family: 'museo_sans500' !important;
+        font-size: 10px !important; 
+    }
+}
+
+div.gridbox_dhx_web.gridbox table.obj.row20px tr.rowselected td {
+    background-color: rgb(191, 233, 255)!important;
+    border-right-color: rgb(191, 233, 255)!important;
+}
+
+div.dhxcombo_dhx_terrace input.dhxcombo_input {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+.dhx_toolbar_dhx_terrace div.dhx_toolbar_btn i {
+    font-size: 1.1em !important;
+    color:#3da0e3 !important; 
+}
+
+div.dhx_toolbar_poly_dhx_terrace td.td_btn_img i {
+    font-size: 1.6em !important;
+    color:#3da0e3 !important; 
+}
+
+div.dhx_toolbar_poly_dhx_terrace td {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+.dhtmlxcalendar_dhx_terrace {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+.dhtmlxcalendar_dhx_terrace div.dhtmlxcalendar_selector_obj table.dhtmlxcalendar_selector_table td.dhtmlxcalendar_selector_cell_middle ul li {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+div.dhtmlxMenu_dhx_terrace_TopLevel_Item_Normal, div.dhtmlxMenu_dhx_terrace_TopLevel_Item_Disabled, div.dhtmlxMenu_dhx_terrace_TopLevel_Item_Selected {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+div.dhtmlxMenu_dhx_terrace_SubLevelArea_Polygon table.dhtmlxMebu_SubLevelArea_Tbl div.sub_item_text {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+td.red_icon i{
+    color:red !important;
+}
+
+td.green_icon i{
+    color:green !important;
+}
+
+.dhtmlxMenu_material_Middle div.dhtmlxMenu_material_TopLevel_Item_Normal, .dhtmlxMenu_material_Middle div.dhtmlxMenu_material_TopLevel_Item_Disabled, .dhtmlxMenu_material_Middle div.dhtmlxMenu_material_TopLevel_Item_Selected {
+    font-family: 'museo_sans500' !important;
+    font-size: 11px !important;
+}
+
+div.dhtmlxMenu_material_SubLevelArea_Polygon td.sub_item_text div.sub_item_text {
+    font-family: 'museo_sans500' !important;
+    font-size: 10px !important;
+}
+
+.dhtmlxMenu_material_Middle {
+    border: 1px solid !important;
+    border-color: #ccc #ccc #fff !important;
+}
+
+
+.fa-remove::before, .fa-close::before, .fa-times::before {
+    color:red !important;
+}
+
+.fa-file-pdf-o::before {
+    color:red !important;
+}
+
+.fa-file-excel-o::before {
+    color:green !important;
+}
+.formlabel, .formlabel_{
+    background-color: #ffffff;
+    color: blue;
+    font-family:Tahoma;
+    font-size: 88%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.formchck{
+     background-color: #ffffff;
+    color: blue;
+    font-family:Tahoma;
+    font-size: 88%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.ui-widget-header {
+    background-color: #fff !important;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+    display: none !important;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    width: 0 !important;
+    height: 0 !important;
+}
+.ui-corner-all {
+    border: 0 !important;
+}
+.ui-datepicker .ui-datepicker-title select {
+    border: 1px solid #ccc !important;
+}
+.formbox {
+    font-family: 'museo_sans500' !important;
+}
+.dhxform_obj_dhx_terrace .dhxform_textarea {
+    font-family: 'museo_sans500' !important;
+}
+.dhxcombo_option_text{  
+    font-family: 'museo_sans500' !important;
+    font-size:11px !important;
+}
+
+.dhxform_obj_dhx_terrace div.dhxform_txt_label2 {   
+    font-family: 'museo_sans500' !important;
+    font-weight: normal !important;
+}
+div.dhxcombo_dhx_terrace input.dhxcombo_input{
+    font-family: 'museo_sans500' !important;  
+}
+.customCombo .dhxcombo_input{
+    background-color : #BFE9FF !important; 
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.customCombo1 .dhxcombo_input{
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+/*.dhtmlxMenu_dhx_terrace_Middle.dir_left div.align_left {
+    float: right !important;
+}*/
+.dhxtabbar_base_dhx_terrace div.dhx_cell_tabbar div.dhx_cell_menu_def {
+    padding: 0 !important;
+}
+div.dhtmlxMenu_dhx_terrace_TopLevel_Item_Normal, div.dhtmlxMenu_dhx_terrace_TopLevel_Item_Disabled, div.dhtmlxMenu_dhx_terrace_TopLevel_Item_Selected {
+    height: 18px !important;
+    line-height: 18px !important;
+ 
+}
+div.gridbox div.ftr {
+    height: 30px !important;
+}
