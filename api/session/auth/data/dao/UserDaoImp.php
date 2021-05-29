@@ -20,6 +20,8 @@ class UserDaoImp implements UserDao, UserData
     {
         $result = $this->queryExecutor->query($traineeId, $password);
 
+
+
         if ($result->rowCount() < 1)
             return null;
 

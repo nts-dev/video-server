@@ -29,7 +29,8 @@ class SessionDatabase implements AppDatabase
             $conn = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$db, self::$username, self::$password,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         } catch (PDOExeption $exception) {
-            return "Conection Error: " . $exception->getMessage();
+//            echo "Conection Error: " . $exception->getMessage();
+            exit();
         }
         return $conn;
     }

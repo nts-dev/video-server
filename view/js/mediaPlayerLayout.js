@@ -57,7 +57,8 @@ function startMediaPlayerWindow(media) {
     const checkPropertiesForm = shareLayout.cells('a').attachForm(formData)
 
 
-    const mediaUrl = baseURL + 'play?id=' + media.hash
+    // const mediaUrl = baseURL + 'play?id=' + media.hash
+    const mediaUrl =  media.url
 
     let embedLink = '<iframe ' +
         'src="' + mediaUrl + '&showinfo=' + shareProps.allowInfo + '&showthumbs=' + shareProps.allowThumbs + '" ' +
@@ -121,6 +122,8 @@ function startMediaPlayerWindow(media) {
         const content = "Iframe   " + embedLink + " \n \nUrl       " + mediaUrl + " \n \nCommand  " + command;
         ifr.contentWindow.setContent(content);
     }
+
+
 }
 
 
