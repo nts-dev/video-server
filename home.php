@@ -56,7 +56,7 @@ $user_name = $current_session->getBOUser()->getFirstName() . " " . $current_sess
 
 
     const WWWROOT = "<?php echo WEBURL . \Boot::WWWROOT ?>";
-    const baseURL = "<?php echo WEBURL . \Boot::WWWROOT  ?>";
+    const baseURL = "https://video.nts.nl/";
 
 </script>
 <script src="view/js/layout.js"></script>
@@ -66,7 +66,6 @@ $user_name = $current_session->getBOUser()->getFirstName() . " " . $current_sess
 <script src="view/js/uploader_form.js"></script>
 <script src="view/js/upload_section.js"></script>
 <script src="view/js/filmScript.js"></script>
-
 <script src="view/js/HTTPfunctions.js"></script>
 
 </body>

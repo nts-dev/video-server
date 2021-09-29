@@ -35,7 +35,7 @@ class AuthenticationServiceImpl implements AuthenticationService
         $BOResponse = $this->authenticateFromBO($traineeId, $password);
 
 
-//        var_dump($BOAuthenticatedUser);
+        //var_dump($BOResponse);
 
         if ($BOResponse->getState() == State::FAIL) {
              $this->storeErrorSession($BOResponse->getMessage());
@@ -48,8 +48,7 @@ class AuthenticationServiceImpl implements AuthenticationService
          * 2 Request token from flare api
          */
         $FlareResponse = $this->authenticateFromFlare($BOResponse->getUser());
-
-
+	
 
 
         if ($FlareResponse->getState() == State::FAIL) {

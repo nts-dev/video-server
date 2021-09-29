@@ -347,13 +347,13 @@ function onMedia_files_toolbarClicked(id) {
                     callback: function (ok) {
                         if (ok) {
                             $.ajax({
-                                url: url + "15", type: "POST", data: {id: mediaId},
+                                url: VIDEO_URL + "3", type: "POST", data: {id: mediaId, user_id: TRAINEE.id},
                                 success: function (response) {
-                                    var parsedJSON = eval('(' + response + ')');
-                                    if (parsedJSON != null) {
-                                        dhtmlx.message({title: 'Success', text: parsedJSON.message});
-                                        media_files_grid.clearAndLoad(VIDEO_URL + '7&id=' + rowId);
-                                    }
+									
+									if (response != null) {
+										dhtmlx.message({title: 'Success', text: "Delete success"});
+										media_files_grid.clearAndLoad(VIDEO_URL + '7&id=' + rowId);
+									}
                                 }
                             });
 
@@ -602,7 +602,7 @@ function attachFile(
 
     fileForm.attachEvent("onFileAdd", function (realName) {
         const ext = getFileExtension(realName);
-        if (!MEDIA_TYPE_AUDIO_SET.has(ext) && !MEDIA_TYPE_VIDEO_SET.has(ext)) {
+        if (!MEDIA_TYPE_AUDIO_SET.has(ext) && !MEDIA_TYPE_VIDEO_SET.has(ext) && !MEDIA_TYPE_MOODLE_SET.has(ext)) {
             dhtmlx.alert({title: "Error", text: realName + " should be a media type"})
         }
     });

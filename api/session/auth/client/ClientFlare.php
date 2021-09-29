@@ -38,6 +38,7 @@ class ClientFlare implements UserClient
         } catch (Exception $e) {
             $error = $e->getMessage();
             echo 'Message: ' . $error;
+			exit;
             throw new \Exception($error);
         }
         return new Response(State::FAIL, $this->user, $error);

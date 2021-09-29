@@ -31,6 +31,7 @@ class Network
 
         $this->client = new Client(
             [
+				'verify' => false,
                 'base_uri' => $BASE_URL,
                 'timeout' => 0
             ]

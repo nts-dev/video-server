@@ -11,7 +11,7 @@ include_once 'config/database.php';
 include_once 'media.php';
 include_once 'TranscoderREST.php';
 
-$database = new AppDatabase();
+$database = new Database();
 
 $db = $database->getConnection();
 

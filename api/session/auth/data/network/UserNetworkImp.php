@@ -34,6 +34,8 @@ class UserNetworkImp implements UserNetwork, UserData
 
 
         curl_setopt($ch, CURLOPT_URL, $URL);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $POST);
 
