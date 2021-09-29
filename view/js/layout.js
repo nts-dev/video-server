@@ -15,7 +15,7 @@ let myWidth, myHeight, global_skin = 'dhx_terrace', grid_skin = 'dhx_web';
  * @type {string}
  */
 const url = baseURL + "app/Stream/data.php?action=";
-const PARENT_URL = "https://video.nts.nl/api/session/"
+const PARENT_URL = "https://video.nts.nl/api/session/";
 const VIDEO_URL = PARENT_URL + "video.php?action=";
 const MODULE_URL = PARENT_URL + "module.php?action=";
 const PROJECT_URL = PARENT_URL + "project.php?&action=";
@@ -63,7 +63,7 @@ const MEDIA_TYPE_MOODLE_SET = new Set(MEDIA_TYPE_MOODLE);
 
 if (typeof (window.innerWidth) == 'number') {
 
-//Non-IE 
+//Non-IE
 
     myWidth = window.innerWidth;
     myHeight = window.innerHeight;
@@ -71,14 +71,14 @@ if (typeof (window.innerWidth) == 'number') {
 } else if (document.documentElement &&
     (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
 
-//IE 6+ in 'standards compliant mode' 
+//IE 6+ in 'standards compliant mode'
 
     myWidth = document.body.clientWidth;
     myHeight = document.body.clientHeight;
 
 } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
 
-//IE 4 compatible 
+//IE 4 compatible
 
     myWidth = document.body.clientWidth;
     myHeight = document.body.clientHeight;
