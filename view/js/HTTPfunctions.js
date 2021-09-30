@@ -613,7 +613,7 @@ function attachFile(
     const fileForm = layout.cells('b').attachForm(uploadFormBox);
 
     fileForm.attachEvent("onFileAdd", function (realName) {
-        const ext = getFileExtension(realName);
+        let ext = getFileExtension(realName);
         if (!MEDIA_TYPE_AUDIO_SET.has(ext) && !MEDIA_TYPE_VIDEO_SET.has(ext) && !MEDIA_TYPE_MOODLE_SET.has(ext)) {
             dhtmlx.alert({title: "Error", text: realName + " should be a media type"})
         }
@@ -640,6 +640,11 @@ function attachFile(
                 }
             });
         });
+
+        let ext = getFileExtension(realName);
+
+        if (MEDIA_TYPE_MOODLE_SET.has(ext))
+            return;
 
         $.ajax({
             url: VIDEO_URL + "9",
