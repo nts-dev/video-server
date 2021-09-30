@@ -15,7 +15,7 @@ let myWidth, myHeight, global_skin = 'dhx_terrace', grid_skin = 'dhx_web';
  * @type {string}
  */
 const url = baseURL + "app/Stream/data.php?action=";
-const PARENT_URL = "https://video.nts.nl/api/session/";
+const PARENT_URL = "https://" + location.host + "/api/session/";
 const VIDEO_URL = PARENT_URL + "video.php?action=";
 const MODULE_URL = PARENT_URL + "module.php?action=";
 const PROJECT_URL = PARENT_URL + "project.php?&action=";
@@ -52,7 +52,7 @@ const MEDIA_TYPE_AUDIO = [
     'wma',
     'MP3',
     'mp3'
-]
+];
 
 const MEDIA_TYPE_MOODLE = ['h5p'];
 
@@ -88,6 +88,12 @@ if (typeof (window.innerWidth) == 'number') {
 
 dhtmlx.skin = global_skin;
 
+let contentIndex = 0;
+let mediaIndex = 0;
+let PROJECT_ID = 0;
+let fileId = 0;
+
+
 const tutMainPrimary_layout = new dhtmlXLayoutObject({
     parent: "videoAppHomepage",
     pattern: "1C"
@@ -113,6 +119,7 @@ courses_toolbar.loadStruct('<toolbar>'
     + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_3" />'
     + '</toolbar>', function () {
 });
+courses_toolbar.attachEvent("onClick", onCourses_toolbarClicked);
 
 const courses_grid = tutAdminPrimary.cells('a').attachTree();
 
@@ -123,7 +130,8 @@ courses_grid.setSkin('dhx_skyblue');
 courses_grid.enableItemEditor(1);
 courses_grid.enableTreeImages(false);
 courses_grid.enableTreeLines(true);
-
+courses_grid.attachEvent("onSelect", onCourses_gridRowSelect);
+courses_grid.attachEvent("onEditCell", onCourses_gridCellEdit);
 courses_grid.loadXML(PROJECT_URL + "1");
 
 courses_grid.attachEvent("onXLE", function (grid_obj, count) {
@@ -136,7 +144,7 @@ courses_grid.attachEvent("onXLS", function (grid_obj) {
     tutAdminPrimary.cells('a').progressOn();
 });
 
-parent_Module_layout = tutAdminPrimary.cells('b').attachLayout('1C');
+const parent_Module_layout = tutAdminPrimary.cells('b').attachLayout('1C');
 
 
 const parentModuleTabbar = parent_Module_layout.cells("a").attachTabbar();
@@ -147,8 +155,6 @@ parentModuleTabbar.addTab("subtitles_audio", "Subtitles & Audio", myWidth * 0.09
 parentModuleTabbar.setArrowsMode("auto");
 parentModuleTabbar.tabs('contentMain').setActive();
 
-
-//
 const Module_layout = parentModuleTabbar.tabs('contentMain').attachLayout('3U');
 
 
@@ -160,12 +166,58 @@ Module_layout.cells('c').hideHeader();
 
 mediaFilesGridHeight = myHeight - ((myHeight * 0.24) + (myHeight * 0.13));
 
+const modulesToolbar = Module_layout.cells('a').attachToolbar();
+modulesToolbar.setIconset("awesome");
+modulesToolbar.addButton('new', 1, 'New Content', 'fa fa-plus', 'fa fa-plus');
+modulesToolbar.addSeparator('sep1', 2);
+modulesToolbar.addButton('up', 3, 'Up', 'fa fa-arrow-up', 'fa fa-arrow-up');
+modulesToolbar.addSeparator('sep2', 4);
+modulesToolbar.addButton('down', 5, 'Down', 'fa fa-arrow-down', 'fa fa-arrow-down');
+modulesToolbar.addSeparator('sep3', 6);
+modulesToolbar.addButton('default', 7, 'Default', 'fa fa-th-list fa-5x', 'fa fa-th-list fa-5x');
+modulesToolbar.addSeparator('sep3', 8);
+modulesToolbar.addButton('all', 9, 'Show All', 'fa fa-list-ol fa-5x', 'fa fa-list-ol fa-5x');
+modulesToolbar.addSeparator('sep3', 10);
+modulesToolbar.addButton('delete', 11, 'Delete', 'fa fa-trash', 'fa fa-trash');
+modulesToolbar.attachEvent("onClick", onModules_toolbarClicked);
 
-const ModulecontentGrid = Module_layout.cells('a').attachGrid();
-ModulecontentGrid.setIconsPath('./preview/codebase/imgs/');
-ModulecontentGrid.setHeader(["ID", "Content Name", "Description", "Date updated"]);
-ModulecontentGrid.setInitWidthsP('7,*,*,15');
-ModulecontentGrid.init();
+
+const ModuleContentGrid = Module_layout.cells('a').attachGrid();
+ModuleContentGrid.setIconsPath('./preview/codebase/imgs/');
+ModuleContentGrid.setHeader(["ID", "Content Name", "Description", "Date updated"]);
+ModuleContentGrid.setInitWidthsP('7,*,*,15');
+ModuleContentGrid.attachEvent("onRowSelect", onModulecontentGridRowSelect);
+ModuleContentGrid.init();
+
+ModuleContentGrid.attachEvent("onXLE", function (grid_obj) {
+    // ModuleContentGrid.selectRow(contentIndex);
+    // const id = ModuleContentGrid.getRowId(contentIndex);
+    // onModulecontentGridRowSelect(id);
+    Module_layout.cells('a').progressOff();
+});
+
+ModuleContentGrid.attachEvent("onXLS", function (grid_obj) {
+    Module_layout.cells('a').progressOn()
+});
+
+const content_formData = [
+    {type: "settings", position: "label-left", labelWidth: 100, inputWidth: 230, offsetLeft: 35},
+    {type: "input", label: "ID", className: "formlabel", name: "id", hidden: true},
+    {type: "input", label: "User", className: "formlabel", name: "user_id", hidden: true},
+    {type: "input", label: "ProjectID", className: "formlabel", name: "subject_id", hidden: true},
+    {type: "input", label: "Title", className: "formlabel", name: "title"},
+    // {type: "newcolumn"},
+    {type: "input", label: "Description", className: "formlabel", name: "description"},
+    {type: "calendar", label: "Date Updated", className: "formlabel", name: "updated_at"},
+];
+//
+
+const content_form = Module_layout.cells('b').attachForm(content_formData);
+
+const modules_toolbar_form = Module_layout.cells('b').attachToolbar();
+modules_toolbar_form.setIconset("awesome");
+modules_toolbar_form.addButton('save', 1, 'Save', 'fa fa-file', 'fa fa-file');
+modules_toolbar_form.attachEvent("onClick", onModules_toolbar_formClicked);
 
 const mediaPrimaryTabLayout = Module_layout.cells('c').attachLayout('1C');
 
@@ -180,14 +232,45 @@ mediaLayoutTabbar.tabs('media').setActive();
 const mediaLayout = mediaLayoutTabbar.cells('media').attachLayout('1C');
 mediaLayout.cells('a').hideHeader();
 
+const media_files_toolbar = mediaLayout.cells('a').attachToolbar();
+media_files_toolbar.setIconset("awesome");
+media_files_toolbar.addButton('new', 1, 'Upload', 'fa fa-upload', 'fa fa-upload');
+media_files_toolbar.addSeparator('sep1', 2);
+media_files_toolbar.addButton('download', 3, 'Download', 'fa fa-download', 'fa fa-download');
+media_files_toolbar.addSeparator('sep2', 4);
+media_files_toolbar.addButton('play', 5, 'Play', 'fa fa-play', 'fa fa-play');
+media_files_toolbar.addSeparator('sep3', 6);
+media_files_toolbar.addButton('replace', 7, 'Replace File', 'fa fa-copy', 'fa fa-copy');
+media_files_toolbar.addSeparator('sep4', 8);
+media_files_toolbar.addButton('up', 9, 'Up', 'fa fa-arrow-up', 'fa fa-arrow-up');
+media_files_toolbar.addSeparator('sep5', 10);
+media_files_toolbar.addButton('down', 11, 'Down', 'fa fa-arrow-down', 'fa fa-arrow-down');
+media_files_toolbar.addSeparator('sep6', 12);
+media_files_toolbar.addButton('delete', 13, 'Delete', 'fa fa-trash', 'fa fa-trash');
+media_files_toolbar.attachEvent("onClick", onMedia_files_toolbarClicked);
+
+
 const media_files_grid = mediaLayout.cells('a').attachGrid();
 media_files_grid.setIconsPath('./preview/codebase/imgs/');
 
 media_files_grid.setHeader(["ID", "Title", "Description", "Author", "Views", "Uploaded", "map", "Url", "Hash#",]);
 media_files_grid.setColumnIds("ID,file_name,description,author,views,Uploaded,disk,url,hash");
 media_files_grid.setInitWidthsP('5,15,*,8,5,10,*,*,*');
+media_files_grid.attachEvent("onRowSelect", onMedia_files_gridRowSelect);
 media_files_grid.init();
 
+media_files_grid.attachEvent("onXLS", function (grid_obj) {
+    mediaLayout.cells('a').progressOn();
+});
+
+media_files_grid.attachEvent("onXLE", function (grid_obj) {
+    mediaLayout.cells('a').progressOff();
+
+    media_files_grid.selectRow(media_files_grid.getRowsNum() - 1);
+    var id = media_files_grid.getSelectedRowId();
+    fileId = id;
+    onMedia_files_gridRowSelect(id);
+});
 
 const commentLayout = mediaLayoutTabbar.cells('comment').attachLayout('3T');
 commentLayout.cells('a').hideHeader();
@@ -206,61 +289,9 @@ const commentLayoutForm = commentLayout.cells('a').attachForm(mediaItemData);
 commentLayoutForm.setReadonly("ID", true);
 commentLayoutForm.setReadonly("mediaName", true);
 
-const media_files_toolbar = mediaLayout.cells('a').attachToolbar();
-media_files_toolbar.setIconset("awesome");
-media_files_toolbar.loadStruct('<toolbar>'
-    + '<item type="button" id="new" text="Upload" img="fa fa-upload " /><item type="separator" id="sep_1" />'
-    + '<item type="button" id="download" text="Download" img="fa fa-download " /><item type="separator" id="sep_2" />'
-    + '<item type="button" id="play" text="Play" img="fa fa-play " /><item type="separator" id="sep_7" />'
-    + '<item type="button" id="replace" text="Replace File" img="fa fa-copy " /><item type="separator" id="sep_3" />'
-    + '<item type="button" id="up" text="Up" img="fa fa-arrow-up" />'
-    + '<item type="button" id="down" text="Down" img="fa fa-arrow-down" /><item type="separator" id="sep_5" />'
-    + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_6" />'
-    //        + '<item type="button" id="regenerate" text="Generate Thumbs Texts" img="fa fa-cog " /><item type="separator" id="sep_7" />'
-    + '</toolbar>', function () {
-});
+const mediaCommentTinyMCE = commentLayout.cells('b').attachURL(baseURL + "app/tinyMceDisplay_comments.php?id=mediacomment&name=mediacomment");
 
-
-const modules_toolbar_form = Module_layout.cells('b').attachToolbar();
-modules_toolbar_form.setIconset("awesome");
-modules_toolbar_form.loadStruct('<toolbar>'
-    // + '<item type="button" id="new" text="New" img="fa fa-plus " /><item type="separator" id="sep_1" />'
-    + '<item type="button" id="save" text="Save" img="fa fa-file " /><item type="separator" id="sep_2" />'
-    // + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_4" />'
-    + '</toolbar>', function () {
-});
-
-modules_toolbar = Module_layout.cells('a').attachToolbar();
-modules_toolbar.setIconset("awesome");
-modules_toolbar.loadStruct('<toolbar>'
-    + '<item type="button" id="new" text="New Content" img="fa fa-plus " /><item type="separator" id="sep_1" />'
-    + '<item type="button" id="up" text="" img="fa fa-arrow-up" />'
-    + '<item type="button" id="down" text="" img="fa fa-arrow-down" /><item type="separator" id="sep_3" />'
-    + '<item type="button" id="default" text="Default" img="fa fa-th-list fa-5x " /><item type="separator" id="sep_5" />'
-    + '<item type="button" id="all" text="Show All" img="fa fa-list-ol fa-5x" /><item type="separator" id="sep_6" />'
-    + '<item type="button" id="delete" text="Delete" img="fa fa-trash" /><item type="separator" id="sep_4" />'
-    + '</toolbar>', function () {
-});
-
-
-const content_formData = [
-    {type: "settings", position: "label-left", labelWidth: 100, inputWidth: 230, offsetLeft: 35},
-    {type: "input", label: "ID", className: "formlabel", name: "id", hidden: true},
-    {type: "input", label: "User", className: "formlabel", name: "user_id", hidden: true},
-    {type: "input", label: "ProjectID", className: "formlabel", name: "subject_id", hidden: true},
-    {type: "input", label: "Title", className: "formlabel", name: "title"},
-    // {type: "newcolumn"},
-    {type: "input", label: "Description", className: "formlabel", name: "description"},
-    {type: "calendar", label: "Date Updated", className: "formlabel", name: "updated_at"},
-];
-//
-
-const content_form = Module_layout.cells('b').attachForm(content_formData);
-
-
-const mediaCommentTinyMCE = commentLayout.cells('b').attachURL(baseURL + "app/tinyMceDisplay_comments.php?id=mediacomment&name=mediacomment")
-
-const mediaInfoTinyMCE = commentLayout.cells('c').attachURL(baseURL + "app/tinyMceDisplay_info.php?id=mediainfo&name=mediainfo")
+const mediaInfoTinyMCE = commentLayout.cells('c').attachURL(baseURL + "app/tinyMceDisplay_info.php?id=mediainfo&name=mediainfo");
 
 
 

@@ -1,11 +1,10 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 var audioSubtitleMainPrimaryLayout = parentModuleTabbar.tabs("subtitles_audio").attachLayout('1C');
-        audioSubtitleMainPrimaryLayout.cells("a").hideHeader();
-
+audioSubtitleMainPrimaryLayout.cells("a").hideHeader();
 
 
 var audioSubtitleTabbar = audioSubtitleMainPrimaryLayout.cells("a").attachTabbar();
@@ -18,19 +17,28 @@ audioSubtitleTabbar.tabs('audios').setActive();
 var audioSubtitleMainLayout = audioSubtitleTabbar.tabs("audios").attachLayout('3W');
 
 audioSubtitleMainLayout.cells('a').setWidth(myWidth * 0.1721);
-audioSubtitleMainLayout.cells('a').setText("Language")
-audioSubtitleMainLayout.cells('b').hideHeader()
-audioSubtitleMainLayout.cells('c').hideHeader()
+audioSubtitleMainLayout.cells('a').setText("Language");
+audioSubtitleMainLayout.cells('b').hideHeader();
+audioSubtitleMainLayout.cells('c').hideHeader();
 
 var audioLanguageGrid = audioSubtitleMainLayout.cells('a').attachGrid();
 audioLanguageGrid.setHeader(["ID", "Language"]);
 audioLanguageGrid.setColumnIds('id,language');
 audioLanguageGrid.setInitWidthsP("10,*");
+audioLanguageGrid.attachEvent("onRowSelect", onAudioLanguageGridSelected);
 audioLanguageGrid.init();
+
+audioLanguageGrid.attachEvent("onXLE", function (grid_obj) {
+    audioLanguageGrid.selectRow(0);
+    var id = audioLanguageGrid.getRowId(0);
+    if (id > 0)
+        onAudioLanguageGridSelected(id);
+});
 
 var audioLanguageTabToolbar = audioSubtitleMainLayout.cells('a').attachToolbar();
 audioLanguageTabToolbar.setIconset("awesome");
 audioLanguageTabToolbar.loadStruct(url + "44");
+audioLanguageTabToolbar.attachEvent("onClick", onAudioLanguageTabToolbarClicked);
 
 var generatedAudioClipMainLayout = audioSubtitleMainLayout.cells('b').attachLayout('2E');
 generatedAudioClipMainLayout.cells('a').setText("Audio Clip");
@@ -43,12 +51,9 @@ generatedAudioTextsTabbar.setArrowsMode("auto");
 generatedAudioTextsTabbar.tabs('plain_texts').setActive();
 
 
-
 const subtitleMiniFilesLayout = generatedAudioTextsTabbar.tabs('web_vtt').attachLayout('1C');
 subtitleMiniFilesLayout.cells('a').hideHeader();
 subtitleMiniFilesLayout.cells('a').attachURL(baseURL + "app/file_code.php?id=filesFrame&name=filesIframe");
-
-
 
 
 const plainTextsLayout = generatedAudioTextsTabbar.tabs('plain_texts').attachLayout('1C');
@@ -57,18 +62,20 @@ plainTextsLayout.cells('a').hideHeader();
 const audioTextTabToolbar = plainTextsLayout.cells('a').attachToolbar();
 audioTextTabToolbar.setIconset("awesome");
 audioTextTabToolbar.loadStruct('<toolbar>'
-        + '<item type="button" id="save" text="Save" img="fa fa-file" /><item type="separator" id="sep_2" />'
-        + '</toolbar>');
+    + '<item type="button" id="save" text="Save" img="fa fa-file" /><item type="separator" id="sep_2" />'
+    + '</toolbar>');
+audioTextTabToolbar.attachEvent("onClick", onAudioTextTabToolbarClicked);
 
 var audioGeneratorTabToolbar = generatedAudioClipMainLayout.cells('a').attachToolbar();
 audioGeneratorTabToolbar.setIconset("awesome");
 audioGeneratorTabToolbar.loadStruct('<toolbar>'
-        + '<item type="button" id="new" text="New" img="fa fa-plus" /><item type="separator" id="sep_1" />'
-        + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_4" />'
-        + '<item type="button" id="generate" text="Generate Audio" img="fa fa-volume-down " /><item type="separator" id="sep_3" />'
-        + '<item type="button" id="subtitle" text="Update Subtitle text" img="fa fa-cog" /><item type="separator" id="sep_2" />'
-        + '<item type="button" id="overlaying" text="Update Overlaying text" img="fa fa-cog" /><item type="separator" id="sep_5" />'
-        + '</toolbar>');
+    + '<item type="button" id="new" text="New" img="fa fa-plus" /><item type="separator" id="sep_1" />'
+    + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_4" />'
+    + '<item type="button" id="generate" text="Generate Audio" img="fa fa-volume-down " /><item type="separator" id="sep_3" />'
+    + '<item type="button" id="subtitle" text="Update Subtitle text" img="fa fa-cog" /><item type="separator" id="sep_2" />'
+    + '<item type="button" id="overlaying" text="Update Overlaying text" img="fa fa-cog" /><item type="separator" id="sep_5" />'
+    + '</toolbar>');
+audioGeneratorTabToolbar.attachEvent("onClick", onAudioGeneratorTabToolbarClicked);
 
 var audioTextLayout = plainTextsLayout.cells('a').attachEditor();
 
@@ -81,17 +88,26 @@ audioMovieLayout.cells('b').setText('Audio Tester');
 var audioMovieLayoutToolbar = audioMovieLayout.cells('a').attachToolbar();
 audioMovieLayoutToolbar.setIconset("awesome");
 audioMovieLayoutToolbar.loadStruct('<toolbar>'
-        + '<item type="button" id="generate" text="Generate Audio Movie" img="fa fa-volume-down " /><item type="separator" id="sep_1" />'
-        + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_2" />'
-        + '</toolbar>');
+    + '<item type="button" id="generate" text="Generate Audio Movie" img="fa fa-volume-down " /><item type="separator" id="sep_1" />'
+    + '<item type="button" id="delete" text="Delete" img="fa fa-trash " /><item type="separator" id="sep_2" />'
+    + '</toolbar>');
+audioMovieLayoutToolbar.attachEvent("onClick", onAudioMovieLayoutToolbarClicked);
 
 var audioGeneratorGrid = generatedAudioClipMainLayout.cells('a').attachGrid();
 audioGeneratorGrid.setHeader(["Sort", "Begin", "End", "", "Updated", "Status"]);
 audioGeneratorGrid.setColumnIds('SortID,BeginTime,EndTime,item,Updated,Status');
 audioGeneratorGrid.setColTypes('ro,ed,ed,ro,ro,ro');
 audioGeneratorGrid.setInitWidthsP("10,*,*,0,16,10");
-
+audioGeneratorGrid.attachEvent("onRowSelect", onAudioGeneratorGridSelected);
+audioGeneratorGrid.attachEvent("onEditCell", onAudioGeneratorGridEditCell);
 audioGeneratorGrid.init();
+
+audioGeneratorGrid.attachEvent("onXLE", function (grid_obj) {
+    audioGeneratorGrid.selectRow(0);
+    var id = audioGeneratorGrid.getRowId(0);
+    onAudioGeneratorGridSelected(id);
+//    audioSpeechLayout.cells('b').progressOff()
+});
 
 
 var audioMovieGrid = audioMovieLayout.cells('a').attachGrid();
@@ -99,4 +115,5 @@ audioMovieGrid.setHeader(["Audio Item", "Last updated"]);
 audioMovieGrid.setColumnIds('item,updated');
 audioMovieGrid.setInitWidthsP("*,*");
 audioMovieGrid.setColTypes('ro,ro');
+audioMovieGrid.attachEvent("onRowSelect", onAudioMovieGridSelected);
 audioMovieGrid.init();
