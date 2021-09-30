@@ -23,7 +23,7 @@ class RequestType
     const MEDIA_EDIT = 5;
     const MEDIA_CATEGORY = 7;
     const UPLOAD = 8;
-
+    const MEDIA_ENCODE = 9;
 
     /**
      *

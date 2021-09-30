@@ -87,4 +87,14 @@ class MediaService implements Crud, IMediaService
             \session\NetworkMethod::GET
         );
     }
+
+    function encodeMedia($id)
+    {
+        assert($id != null);
+
+        return $this->network->invoke(
+            self::ENDPOINT . "/encode/" . $id,
+            \session\NetworkMethod::GET
+        );
+    }
 }
