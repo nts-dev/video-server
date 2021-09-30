@@ -40,10 +40,6 @@ switch ($action) {
             'description' => filter_input(INPUT_GET, 'description', FILTER_SANITIZE_STRING),
             'file' => $_FILES['file']
         ];
-
-        echo $mediaService->save($data);
-
-        exit;
         echo json_encode($mediaService->save($data));
 
         break;
