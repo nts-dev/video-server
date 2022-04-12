@@ -1,12 +1,12 @@
-Options +FollowSymLinks -MultiViews                                        
+Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]                                                           
-RewriteBase /                                                              
-RewriteCond %{REQUEST_URI}  ^/forbiddenFolder     [NC]                     
-RewriteCond %{REQUEST_URI}  /[\w]+\.(php|vtt|f4v|mp4|mp3|m3u8) [NC,OR]                  
-RewriteCond %{REQUEST_URI}  /[^.]+/?$             [NC]                     
-RewriteCond %{REQUEST_URI}  !index\.php       [NC]                     
-RewriteRule .*              index.php        [L,NC] 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+RewriteBase /
+RewriteCond %{REQUEST_URI}  ^/forbiddenFolder     [NC]
+RewriteCond %{REQUEST_URI}  /[\w]+\.(php|vtt|f4v|mp4|mp3|m3u8) [NC,OR]
+RewriteCond %{REQUEST_URI}  /[^.]+/?$             [NC]
+RewriteCond %{REQUEST_URI}  !index\.php       [NC]
+RewriteRule .*              index.php        [L,NC]
 Header add Access-Control-Allow-Origin "*"
 Header always set Content-Security-Policy "upgrade-insecure-requests;"

@@ -566,18 +566,25 @@ function uploadFile(moduleId, action) {
 
         }
 
-        uploadfileForm.validate();
+        if (!uploadfileForm.validate()) return;
+
         attachFile(
             fileUploadWindow,
             fileUploadLayout,
             uploadfileForm.getItemValue("subject_id"),
             uploadfileForm.getItemValue("module_id"),
             uploadfileForm.getItemValue("title"),
-            uploadfileForm.getItemValue("description"))
+            uploadfileForm.getItemValue("description"));
 
         // console.log(values)
     });
 
+
+}
+
+function attachUploadWindow(ileUploadWindow, layout, subject_id, module_id, title, description) {
+
+    layout.cells('b').attachURL('upload.php');
 
 }
 
