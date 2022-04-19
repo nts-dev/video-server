@@ -584,7 +584,7 @@ function uploadFile(moduleId, action) {
 
 function attachUploadWindow(fileUploadWindow, layout, subject_id, module_id, title, description) {
 
-    layout.cells('b').attachURL("/upload.php");
+    layout.cells('b').attachURL("/upload.php?subject_id=" + subject_id + "&module_id=" + module_id + "&title=" + title + "&description=" + description);
 }
 
 

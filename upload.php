@@ -85,7 +85,9 @@
             margin-top: 4rem !important;
         }
 
-        .upload-button .choose-file-button { float:right }
+        .upload-button .choose-file-button {
+            float: right
+        }
     </style>
 
 </head>
@@ -97,7 +99,8 @@
                         class="file-message">or drag and drop files here</span>
                 <input class="file-input" type="file" id="dropZone">
             </div>
-            <div class="upload-button" style="margin-top: 15px"><span class="choose-file-button" id="uploadFile">Upload files</span></div>
+            <div class="upload-button" style="margin-top: 15px"><span class="choose-file-button" id="uploadFile">Upload files</span>
+            </div>
             <div style="display: none" class="progress mt-3" style="height: 25px;margin-top: 15px">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                      aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%
@@ -111,9 +114,14 @@
 
     $(document).ready(function () {
 
+        let subject_id = <?= filter_input(INPUT_GET, 'subject_id', FILTER_SANITIZE_NUMBER_INT) ?>;
+        let module_id = <?= filter_input(INPUT_GET, 'module_id', FILTER_SANITIZE_NUMBER_INT) ?>;
+        let title = <?= filter_input(INPUT_GET, 'title') ?>;
+        let description = <?= filter_input(INPUT_GET, 'description') ?>;
+
         let resumable = new Resumable({
             target: 'https://video.nts.nl:9090/api/videos/store',
-            // query: {_token: '{{ csrf_token() }}'}, // CSRF token
+            query: {subject_id: subject_id, module_id: module_id, title: title, description: description},
             // fileType: ['mp4'],
             chunkSize: 10 * 1024 * 1024, // default is 1*1024*1024, this should be less than your maximum limit in php.ini
             headers: {
@@ -139,12 +147,42 @@
         });
 
         resumable.on('fileSuccess', function (file, response) { // trigger when file upload complete
-            response = JSON.parse(response)
+            response = JSON.parse(response);
             // $('#videoPreview').attr('src', response.path);
             // $('.card-footer').show();
-            parent.dhtmlx.alert('successfully uploaded.');
             progress.hide();
-            document.getElementById('dropZone').previousElementSibling.textContent = "or drag and drop files here"
+            document.getElementById('dropZone').previousElementSibling.textContent = "or drag and drop files here";
+
+            console.log(response);
+
+
+            parent.dhtmlx.message('Upload success. Your file will be available shortly');
+            parent.clearForm(parent.fileForm);
+            parent.fileUploadWindow.close();
+
+            parent.media_files_grid.clearAndLoad(parent.VIDEO_URL + '7&id=' + module_id, function () {
+//                vid_libGrid.clearAndLoad(url + '7&id=' + PROJECT_ID);
+                $.ajax({
+                    url: parent.url + "41",
+                    type: "GET",
+                    data: {file: parent.media_files_grid.getSelectedRowId()},
+                    success: function (response) {
+                        const parsedJSON = eval('(' + response + ')');
+                    }
+                });
+            });
+
+            let ext = getFileExtension(response.path);
+
+            if (parent.MEDIA_TYPE_MOODLE_SET.has(ext))
+                return;
+
+            // $.ajax({
+            //     url: parent.VIDEO_URL + "9",
+            //     type: "GET",
+            //     data: {id: serverName},
+            //     success: function (response) {}
+            // });
         });
 
         resumable.on('fileError', function (file, response) { // trigger when there is any error
@@ -155,6 +193,10 @@
             showProgress();
             resumable.upload(); // to actually start uploading.
         });
+
+        function getFileExtension(filename) {
+            return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+        }
 
 
         let progress = $('.progress');
