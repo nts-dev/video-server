@@ -153,7 +153,7 @@
             progress.hide();
             document.getElementById('dropZone').previousElementSibling.textContent = "or drag and drop files here";
 
-            console.log(response);
+
 
 
             parent.dhtmlx.message('Upload success. Your file will be available shortly');
@@ -170,7 +170,7 @@
                     }
                 });
             });
-
+            console.log(parent.url);
             let ext = getFileExtension(response.realName);
 
             if (parent.MEDIA_TYPE_MOODLE_SET.has(ext))
