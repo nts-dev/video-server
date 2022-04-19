@@ -584,7 +584,7 @@ function uploadFile(moduleId, action) {
 
 function attachUploadWindow(fileUploadWindow, layout, subject_id, module_id, title, description) {
 
-    layout.cells('b').attachURL("https://video.nts.nl:9090/upload");
+    layout.cells('b').attachURL("/upload.php");
 }
 
 
