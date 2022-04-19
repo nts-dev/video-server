@@ -157,7 +157,6 @@
 
 
             parent.dhtmlx.message('Upload success. Your file will be available shortly');
-            parent.clearForm(parent.fileForm);
             parent.fileUploadWindow.close();
 
             parent.media_files_grid.clearAndLoad(parent.VIDEO_URL + '7&id=' + module_id, function () {
@@ -172,17 +171,17 @@
                 });
             });
 
-            let ext = getFileExtension(response.path);
+            let ext = getFileExtension(response.realName);
 
             if (parent.MEDIA_TYPE_MOODLE_SET.has(ext))
                 return;
 
-            // $.ajax({
-            //     url: parent.VIDEO_URL + "9",
-            //     type: "GET",
-            //     data: {id: serverName},
-            //     success: function (response) {}
-            // });
+            $.ajax({
+                url: parent.VIDEO_URL + "9",
+                type: "GET",
+                data: {id: response.serverName},
+                success: function (response) {}
+            });
         });
 
         resumable.on('fileError', function (file, response) { // trigger when there is any error

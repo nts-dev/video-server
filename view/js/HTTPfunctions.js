@@ -478,19 +478,23 @@ function generateSpriteWithTextsService(alias) {
     });
 }
 
+var fileUploadWindow;
+var fileUploadLayout;
+
+
 function uploadFile(moduleId, action) {
 
     if (moduleId < 1 || PROJECT_ID < 1)
         return
 
     const fileUploadMainWindow = new dhtmlXWindows();
-    const fileUploadWindow = fileUploadMainWindow.createWindow("uploadpic_win", 0, 0, 480, 580);
+    fileUploadWindow = fileUploadMainWindow.createWindow("uploadpic_win", 0, 0, 480, 580);
     fileUploadWindow.center();
     fileUploadWindow.setText("Upload  file");
 
     // fileUploadWindow.attachLayout('F4');
 
-    const fileUploadLayout = fileUploadWindow.attachLayout('2E');
+    fileUploadLayout = fileUploadWindow.attachLayout('2E');
     fileUploadLayout.cells('a').hideHeader();
     fileUploadLayout.cells('b').hideHeader();
     fileUploadLayout.attachEvent("onContentLoaded", function (id) {
@@ -569,8 +573,8 @@ function uploadFile(moduleId, action) {
         if (!uploadfileForm.validate()) return;
 
         attachUploadWindow(
-            fileUploadWindow,
-            fileUploadLayout,
+            // fileUploadWindow,
+            // fileUploadLayout,
             uploadfileForm.getItemValue("subject_id"),
             uploadfileForm.getItemValue("module_id"),
             uploadfileForm.getItemValue("title"),
@@ -584,7 +588,7 @@ function uploadFile(moduleId, action) {
 
 function attachUploadWindow(fileUploadWindow, layout, subject_id, module_id, title, description) {
 
-    layout.cells('b').attachURL("/upload.php?subject_id=" + subject_id + "&module_id=" + module_id + "&title=" + title + "&description=" + description);
+    fileUploadLayout.cells('b').attachURL("/upload.php?subject_id=" + subject_id + "&module_id=" + module_id + "&title=" + title + "&description=" + description);
 }
 
 
