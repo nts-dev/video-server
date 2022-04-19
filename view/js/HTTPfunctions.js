@@ -501,6 +501,20 @@ function uploadFile(moduleId, action) {
 
     });
 
+    fileUploadWindow.attachEvent("onClose", function (win) {
+        media_files_grid.clearAndLoad(VIDEO_URL + '7&id=' + moduleId, function () {
+
+            $.ajax({
+                url: url + "41",
+                type: "GET",
+                data: {file: media_files_grid.getSelectedRowId()},
+                success: function (response) {
+                    const parsedJSON = eval('(' + response + ')');
+                }
+            });
+        });
+    });
+
     const formValues = {
         subject_id: null,
         module_id: null,
@@ -583,6 +597,7 @@ function uploadFile(moduleId, action) {
 
 
 }
+
 
 function attachUploadWindow(subject_id, module_id, title, description) {
 
