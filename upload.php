@@ -1,115 +1,182 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>TODO supply a title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap 5.x or 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-          crossorigin="anonymous">
+    <title>Upload</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- default icons used in the plugin are from Bootstrap 5.x icon library (which can be enabled by loading CSS below) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css"
-          crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
 
-    <!-- alternatively you can use the font awesome icon library if using with `fas` theme (or Bootstrap 4.x) by uncommenting below. -->
-    <!-- link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous" -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <!-- the fileinput plugin styling CSS file -->
-    <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/css/fileinput.min.css" media="all"
-          rel="stylesheet" type="text/css"/>
-
-    <!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
-    <!-- link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
-
-    <!-- the jQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-
-    <!-- piexif.min.js is needed for auto orienting image files OR when restoring exif data in resized images and when you
-        wish to resize images before upload. This must be loaded before fileinput.min.js -->
-    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/js/plugins/piexif.min.js"
-            type="text/javascript"></script>
-
-    <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview.
-        This must be loaded before fileinput.min.js -->
-    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/js/plugins/sortable.min.js"
-            type="text/javascript"></script>
-
-    <!-- bootstrap.bundle.min.js below is needed if you wish to zoom and preview file content in a detail modal
-        dialog. bootstrap 5.x or 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-
-    <!-- the main fileinput plugin script JS file -->
-    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/js/fileinput.min.js"></script>
-
-    <!-- following theme script is needed to use the Font Awesome 5.x theme (`fas`). Uncomment if needed. -->
-    <!-- script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/themes/fas/theme.min.js"></script -->
-
-    <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
-    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.5/js/locales/LANG.js"></script>
 
     <style>
-        html, body {
-            /*width: 100%;*/
-            /*height: 100%;*/
-            /*margin: 0px;*/
-            /*overflow: hidden;*/
-            padding: 5px;
-        }
-        .file-drop-zone {
-            min-height: 140px !important;
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            /*background: linear-gradient(to right, #8e24aa, #b06ab3);*/
+            /*background: linear-gradient(to right, #a0a2a5, #6f6b6f);*/
+            /*color: #D7D7EF;*/
+            color: #69696a;
+            font-family: 'Lato', sans-serif
         }
 
-        .file-drop-zone-title {
-            padding: 40px 10px;
+        h2 {
+            margin: 50px 0
         }
 
-        .krajee-default.file-preview-frame .kv-file-content {
-            width: 100px;
-            height: 1px;
+        .file-drop-area {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 450px;
+            max-width: 100%;
+            padding: 25px;
+            /*border: 1px dashed rgba(255, 255, 255, 0.4);*/
+            border: 1px dashed rgba(15, 12, 12, 0.4);
+            border-radius: 3px;
+            transition: 0.2s
         }
-        .krajee-default .file-footer-caption {
-            margin-bottom: 10px;
+
+        .choose-file-button {
+            flex-shrink: 0;
+            background-color: rgba(153, 149, 149, 0.04);
+            border: 1px solid rgba(9, 8, 8, 0.1);
+            /*background-color: rgba(255, 255, 255, 0.04);*/
+            /*border: 1px solid rgba(255, 255, 255, 0.1);*/
+            border-radius: 3px;
+            padding: 8px 15px;
+            margin-right: 10px;
+            font-size: 12px;
+            text-transform: uppercase
         }
+
+        .file-message {
+            font-size: small;
+            font-weight: 300;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            opacity: 0
+        }
+
+        .mt-100 {
+            margin-top: 15px
+        }
+
+        .mt-3, .my-3 {
+            margin-top: 4rem !important;
+        }
+
+        .upload-button .choose-file-button { float:right }
     </style>
+
 </head>
 <body>
-<!--<label for="input-id">File Gallery</label>-->
-<!--<div class="file-loading">-->
-    <input id="input-id" name="input-id[]" type="file" multiple accept="image/*">
-<!--</div>-->
-<script>
+<div class="container d-flex justify-content-center mt-100">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="file-drop-area" id="browseFile"><span class="choose-file-button">Choose files</span> <span
+                        class="file-message">or drag and drop files here</span>
+                <input class="file-input" type="file" id="dropZone">
+            </div>
+            <div class="upload-button" style="margin-top: 15px"><span class="choose-file-button" id="uploadFile">Upload files</span></div>
+            <div style="display: none" class="progress mt-3" style="height: 25px;margin-top: 15px">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
     $(document).ready(function () {
-        $("#input-id").fileinput({
-            uploadUrl: "https://video.nts.nl:9090/api/videos/store",
-            enableResumableUpload: true,
-            resumableUploadOptions: {
-                // uncomment below if you wish to test the file for previous partial uploaded chunks
-                // to the server and resume uploads from that point afterwards
-                // testUrl: "http://localhost/test-upload.php"
+
+        let resumable = new Resumable({
+            target: 'https://video.nts.nl:9090/api/videos/store',
+            // query: {_token: '{{ csrf_token() }}'}, // CSRF token
+            // fileType: ['mp4'],
+            chunkSize: 10 * 1024 * 1024, // default is 1*1024*1024, this should be less than your maximum limit in php.ini
+            headers: {
+                'Accept': 'application/json'
             },
-            uploadExtraData: {
-                // 'uploadToken': 'SOME-TOKEN', // for access control / security
-            },
-            maxFileCount: 5,
-            allowedFileTypes: ['image'], // allow only images
-            showCancel: true,
-            initialPreviewAsData: true,
-            overwriteInitial: false,
-            // initialPreview: [],          // if you have previously uploaded preview files
-            // initialPreviewConfig: [],    // if you have previously uploaded preview files
-            theme: 'fas',
-            deleteUrl: "http://localhost/file-delete.php"
-        }).on('fileuploaded', function (event, previewId, index, fileId) {
-            console.log('File Uploaded', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
-        }).on('fileuploaderror', function (event, data, msg) {
-            console.log('File Upload Error', 'ID: ' + data.fileId + ', Thumb ID: ' + data.previewId);
-        }).on('filebatchuploadcomplete', function (event, preview, config, tags, extraData) {
-            console.log('File Batch Uploaded', preview, config, tags, extraData);
+            testChunks: false,
+            throttleProgressCallbacks: 1,
         });
+
+        resumable.assignBrowse(document.getElementById('browseFile'));
+        resumable.assignDrop(document.getElementById('browseFile'));
+
+        resumable.on('fileAdded', function (file) { // trigger when file picked
+
+            let textbox = document.getElementById('dropZone').previousElementSibling;
+            textbox.textContent = file.fileName;
+
+            // $('#uploadFile').show();
+        });
+
+        resumable.on('fileProgress', function (file) { // trigger when file progress update
+            updateProgress(Math.floor(file.progress() * 100));
+        });
+
+        resumable.on('fileSuccess', function (file, response) { // trigger when file upload complete
+            response = JSON.parse(response)
+            // $('#videoPreview').attr('src', response.path);
+            // $('.card-footer').show();
+            parent.dhtmlx.alert('successfully uploaded.');
+            progress.hide();
+            document.getElementById('dropZone').previousElementSibling.textContent = "or drag and drop files here"
+        });
+
+        resumable.on('fileError', function (file, response) { // trigger when there is any error
+            alert('file uploading error.')
+        });
+
+        $("#uploadFile").click(function () {
+            showProgress();
+            resumable.upload(); // to actually start uploading.
+        });
+
+
+        let progress = $('.progress');
+
+        function showProgress() {
+            progress.find('.progress-bar').css('width', '0%');
+            progress.find('.progress-bar').html('0%');
+            progress.find('.progress-bar').removeClass('bg-success');
+            progress.show();
+        }
+
+        function updateProgress(value) {
+            progress.find('.progress-bar').css('width', `${value}%`)
+            progress.find('.progress-bar').html(`${value}%`)
+        }
+
+        function hideProgress() {
+            progress.hide();
+        }
     });
 </script>
+
 </body>
 </html>
 
