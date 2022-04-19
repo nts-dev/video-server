@@ -116,8 +116,8 @@
 
         let subject_id = <?= filter_input(INPUT_GET, 'subject_id', FILTER_SANITIZE_NUMBER_INT) ?>;
         let module_id = <?= filter_input(INPUT_GET, 'module_id', FILTER_SANITIZE_NUMBER_INT) ?>;
-        let title = <?= filter_input(INPUT_GET, 'title') ?>;
-        let description = <?= filter_input(INPUT_GET, 'description') ?>;
+        let title = "<?= filter_input(INPUT_GET, 'title') ?>";
+        let description = "<?= filter_input(INPUT_GET, 'description') ?>";
 
         let resumable = new Resumable({
             target: 'https://video.nts.nl:9090/api/videos/store',
