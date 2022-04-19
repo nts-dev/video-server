@@ -14,9 +14,9 @@ let myWidth, myHeight, global_skin = 'dhx_terrace', grid_skin = 'dhx_web';
  *
  * @type {string}
  */
-var url = baseURL + "app/Stream/data.php?action=";
+const url = baseURL + "app/Stream/data.php?action=";
 const PARENT_URL = "https://" + location.host + "/api/session/";
-var VIDEO_URL = PARENT_URL + "video.php?action=";
+const VIDEO_URL = PARENT_URL + "video.php?action=";
 const MODULE_URL = PARENT_URL + "module.php?action=";
 const PROJECT_URL = PARENT_URL + "project.php?&action=";
 const COMMENT_URL = PARENT_URL + "comment.php?action=";
@@ -54,11 +54,11 @@ const MEDIA_TYPE_AUDIO = [
     'mp3'
 ];
 
-var MEDIA_TYPE_MOODLE = ['h5p'];
+const MEDIA_TYPE_MOODLE = ['h5p'];
 
 const MEDIA_TYPE_AUDIO_SET = new Set(MEDIA_TYPE_AUDIO);
 const MEDIA_TYPE_VIDEO_SET = new Set(MEDIA_TYPE_VIDEO);
-var MEDIA_TYPE_MOODLE_SET = new Set(MEDIA_TYPE_MOODLE);
+const MEDIA_TYPE_MOODLE_SET = new Set(MEDIA_TYPE_MOODLE);
 
 
 if (typeof (window.innerWidth) == 'number') {
@@ -250,7 +250,7 @@ media_files_toolbar.addButton('delete', 13, 'Delete', 'fa fa-trash', 'fa fa-tras
 media_files_toolbar.attachEvent("onClick", onMedia_files_toolbarClicked);
 
 
-var media_files_grid = mediaLayout.cells('a').attachGrid();
+const media_files_grid = mediaLayout.cells('a').attachGrid();
 media_files_grid.setIconsPath('./preview/codebase/imgs/');
 
 media_files_grid.setHeader(["ID", "Title", "Description", "Author", "Views", "Uploaded", "map", "Url", "Hash#",]);

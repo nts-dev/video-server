@@ -153,12 +153,6 @@
             progress.hide();
             document.getElementById('dropZone').previousElementSibling.textContent = "or drag and drop files here";
 
-
-
-
-            parent.dhtmlx.message('Upload success. Your file will be available shortly');
-            parent.fileUploadWindow.close();
-
             parent.media_files_grid.clearAndLoad(parent.VIDEO_URL + '7&id=' + module_id, function () {
 //                vid_libGrid.clearAndLoad(url + '7&id=' + PROJECT_ID);
                 $.ajax({
@@ -170,6 +164,7 @@
                     }
                 });
             });
+
             console.log(parent.url);
             let ext = getFileExtension(response.realName);
 
@@ -182,6 +177,9 @@
                 data: {id: response.serverName},
                 success: function (response) {}
             });
+
+            parent.dhtmlx.message('Upload success. Your file will be available shortly');
+            parent.fileUploadWindow.close();
         });
 
         resumable.on('fileError', function (file, response) { // trigger when there is any error
