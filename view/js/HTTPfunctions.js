@@ -568,7 +568,7 @@ function uploadFile(moduleId, action) {
 
         if (!uploadfileForm.validate()) return;
 
-        attachFile(
+        attachUploadWindow(
             fileUploadWindow,
             fileUploadLayout,
             uploadfileForm.getItemValue("subject_id"),
@@ -582,10 +582,9 @@ function uploadFile(moduleId, action) {
 
 }
 
-function attachUploadWindow(ileUploadWindow, layout, subject_id, module_id, title, description) {
+function attachUploadWindow(fileUploadWindow, layout, subject_id, module_id, title, description) {
 
-    layout.cells('b').attachURL('upload.php');
-
+    layout.cells('b').attachURL("https://video.nts.nl:9090/upload");
 }
 
 

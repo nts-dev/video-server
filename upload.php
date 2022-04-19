@@ -90,7 +90,7 @@
                 // testUrl: "http://localhost/test-upload.php"
             },
             uploadExtraData: {
-                'uploadToken': 'SOME-TOKEN', // for access control / security
+                // 'uploadToken': 'SOME-TOKEN', // for access control / security
             },
             maxFileCount: 5,
             allowedFileTypes: ['image'], // allow only images
