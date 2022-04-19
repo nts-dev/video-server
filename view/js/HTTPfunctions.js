@@ -573,8 +573,6 @@ function uploadFile(moduleId, action) {
         if (!uploadfileForm.validate()) return;
 
         attachUploadWindow(
-            // fileUploadWindow,
-            // fileUploadLayout,
             uploadfileForm.getItemValue("subject_id"),
             uploadfileForm.getItemValue("module_id"),
             uploadfileForm.getItemValue("title"),
@@ -586,15 +584,13 @@ function uploadFile(moduleId, action) {
 
 }
 
-function attachUploadWindow(fileUploadWindow, layout, subject_id, module_id, title, description) {
+function attachUploadWindow(subject_id, module_id, title, description) {
 
     fileUploadLayout.cells('b').attachURL("/upload.php?subject_id=" + subject_id + "&module_id=" + module_id + "&title=" + title + "&description=" + description);
 }
 
 
 function attachFile(
-    fileUploadWindow,
-    layout,
     subject_id,
     module_id,
     title,
@@ -620,7 +616,7 @@ function attachFile(
         }
     ];
 
-    const fileForm = layout.cells('b').attachForm(uploadFormBox);
+    const fileForm = fileUploadLayout.cells('b').attachForm(uploadFormBox);
 
     fileForm.attachEvent("onFileAdd", function (realName) {
         let ext = getFileExtension(realName);
