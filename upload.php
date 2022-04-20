@@ -159,14 +159,14 @@
             if (ext == 'h5p')
                 return;
 
-            $.ajax({
-                url: "/api/session/video.php?action=9",
-                type: "GET",
-                data: {id: response.serverName},
-                cache: false,
-                success: function (response) {
-                }
-            });
+            // $.ajax({
+            //     url: "/api/session/video.php?action=9",
+            //     type: "GET",
+            //     data: {id: response.serverName},
+            //     cache: false,
+            //     success: function (response) {
+            //     }
+            // });
 
             // $.post("/api/session/video.php?action=9&id=" + response.serverName);
 
