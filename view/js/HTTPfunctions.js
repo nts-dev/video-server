@@ -478,6 +478,7 @@ function generateSpriteWithTextsService(alias) {
     });
 }
 
+var fileUploadMainWindow;
 var fileUploadWindow;
 var fileUploadLayout;
 
@@ -487,7 +488,7 @@ function uploadFile(moduleId, action) {
     if (moduleId < 1 || PROJECT_ID < 1)
         return
 
-    const fileUploadMainWindow = new dhtmlXWindows();
+    fileUploadMainWindow = new dhtmlXWindows();
     fileUploadWindow = fileUploadMainWindow.createWindow("uploadpic_win", 0, 0, 480, 580);
     fileUploadWindow.center();
     fileUploadWindow.setText("Upload  file");
@@ -501,7 +502,7 @@ function uploadFile(moduleId, action) {
 
     });
 
-    fileUploadWindow.attachEvent("onClose", function (win) {
+    fileUploadMainWindow.attachEvent("onClose", function (win) {
         media_files_grid.clearAndLoad(VIDEO_URL + '7&id=' + moduleId, function () {
 
             $.ajax({
