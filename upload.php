@@ -153,30 +153,21 @@
             progress.hide();
             document.getElementById('dropZone').previousElementSibling.textContent = "or drag and drop files here";
 
-//             parent.media_files_grid.clearAndLoad(parent.VIDEO_URL + '7&id=' + module_id, function () {
-// //                vid_libGrid.clearAndLoad(url + '7&id=' + PROJECT_ID);
-//                 $.ajax({
-//                     url: parent.url + "41",
-//                     type: "GET",
-//                     data: {file: parent.media_files_grid.getSelectedRowId()},
-//                     success: function (response) {
-//                         const parsedJSON = eval('(' + response + ')');
-//                     }
-//                 });
-//             });
-
             // console.log(parent.url);
             let ext = getFileExtension(response.realName);
 
             if (ext == 'h5p')
                 return;
 
-            $.ajax({
-                url: "/api/session/video.php?action=9",
-                type: "GET",
-                data: {id: response.serverName},
-                success: function (response) {}
-            });
+            // $.ajax({
+            //     url: "/api/session/video.php?action=9",
+            //     type: "GET",
+            //     data: {id: response.serverName},
+            //     success: function (response) {
+            //     }
+            // });
+
+            $.getJSON("/api/session/video.php?action=9&id=" + response.serverName);
 
             parent.dhtmlx.message('Upload success. Your file will be available shortly');
             parent.fileUploadWindow.close();
