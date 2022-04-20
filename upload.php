@@ -99,7 +99,7 @@
                         class="file-message">or drag and drop files here</span>
                 <input class="file-input" type="file" id="dropZone">
             </div>
-            <div class="upload-button" style="margin-top: 15px"><span class="choose-file-button" id="uploadFile">Upload files</span>
+            <div class="upload-button" style="margin-top: 15px"><span class="btn choose-file-button" id="uploadFile">Upload files</span>
             </div>
             <div style="display: none" class="progress mt-3" style="height: 25px;margin-top: 15px">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
