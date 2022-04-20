@@ -486,7 +486,7 @@ var fileUploadLayout;
 function uploadFile(moduleId, action) {
 
     if (moduleId < 1 || PROJECT_ID < 1)
-        return
+        return;
 
     fileUploadMainWindow = new dhtmlXWindows();
     fileUploadWindow = fileUploadMainWindow.createWindow("uploadpic_win", 0, 0, 500, 580);
