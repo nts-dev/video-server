@@ -489,7 +489,7 @@ function uploadFile(moduleId, action) {
         return
 
     fileUploadMainWindow = new dhtmlXWindows();
-    fileUploadWindow = fileUploadMainWindow.createWindow("uploadpic_win", 0, 0, 480, 580);
+    fileUploadWindow = fileUploadMainWindow.createWindow("uploadpic_win", 0, 0, 500, 580);
     fileUploadWindow.center();
     fileUploadWindow.setText("Upload  file");
 
@@ -514,6 +514,8 @@ function uploadFile(moduleId, action) {
                 }
             });
         });
+
+        return true;
     });
 
     const formValues = {
