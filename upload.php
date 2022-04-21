@@ -175,7 +175,7 @@
         });
 
         resumable.on('fileError', function (file, response) { // trigger when there is any error
-            alert('file uploading error.')
+            parent.dhtmlx.alert('File uploading error. Contact system admin')
         });
 
         $("#uploadFile").click(function () {
